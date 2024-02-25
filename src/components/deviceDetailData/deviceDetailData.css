@@ -1,0 +1,34 @@
+.data-container {
+  display: flex;
+  margin: 24px 24px;
+  background-color: #ffffff;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 24px;
+  gap:24px
+}
+.data-element {
+  width: 100%;
+  max-width: 293px;
+  /* height: 24px; */
+  display: flex;
+  flex-direction: column;
+}
+.data-label {
+  font-family: "Commissioner";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: left;
+  color: #2d3540;
+}
+.data-text {
+  font-family: "Commissioner";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: left;
+  color: #2d3540;
+}

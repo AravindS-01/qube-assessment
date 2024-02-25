@@ -1,0 +1,30 @@
+th{
+  font-family: "Commissioner";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: left;
+  padding: 10px;
+}
+
+td{
+  font-family: 'Commissioner';
+font-size: 12px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: -0.20000000298023224px;
+text-align: left;
+padding: 10px;
+
+}
+
+.location {
+  font-family: "Commissioner";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: left;
+  color: #084782;
+}

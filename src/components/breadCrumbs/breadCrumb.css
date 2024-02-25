@@ -1,0 +1,28 @@
+.breadcrumb-container{
+    display: flex;
+    list-style-type: none;
+    gap:4px;
+    align-items: center;
+}
+.breadcrumb-currentPage{
+font-family: 'Commissioner';
+font-size: 12px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: -0.20000000298023224px;
+text-align: left;
+}
+
+.breadCrumb-common{
+    font-family: Commissioner;
+font-size: 12px;
+font-weight: 500;
+line-height: 20px;
+letter-spacing: -0.20000000298023224px;
+text-align: left;
+color: #69788C;
+}
+.breadCrumb-arrow{
+    width:24px;
+    height:24px
+}
