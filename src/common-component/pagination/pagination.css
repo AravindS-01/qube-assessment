@@ -1,52 +1,49 @@
-.pagination-item{
+.pagination-item {
   display: flex;
   align-items: center;
-} 
-.select-item{
+}
+.select-item {
   display: flex;
   align-items: center;
-  gap: 7px
+  gap: 7px;
 }
-select{ 
-padding: 4px 8px 4px 8px;
-border-radius: 4px;
-border: 1px solid #CFDCE5;
-outline:none
-
+select {
+  padding: 4px 8px 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #cfdce5;
+  outline: none;
 }
-.show-label{
-  font-family: 'Commissioner';
-font-size: 12px;
-font-weight: 500;
-line-height: 20px;
-letter-spacing: -0.20000000298023224px;
-text-align: right;
-
+.show-label {
+  font-family: "Commissioner";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: right;
 }
 .pagination {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-  }
-  
-  .page-item {
-    margin: 0 5px;
-  }
-  
-  .page-link {
-    padding: 5px 10px;
-    /* border: 1px solid #084782; */
-    background-color: #fff;
-    cursor: pointer;
-    
-  }
-  
-  .page-link:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .page-item.active .page-link {
-    background-color:#EBF5FF;
-    color: #084782;
-    border: 1px solid #084782
-  }
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.page-item {
+  margin: 0 5px;
+}
+
+.page-link {
+  padding: 5px 10px;
+  /* border: 1px solid #084782; */
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.page-link:hover {
+  background-color: #f0f0f0;
+}
+
+.page-item.active .page-link {
+  background-color: #ebf5ff;
+  color: #084782;
+  border: 1px solid #084782;
+}

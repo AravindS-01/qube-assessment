@@ -9,53 +9,53 @@
   text-align: left;
   margin-bottom: 25px;
 }
-.status{
-padding: 16px 24px;
-border-radius: 8px;
-display: flex;
-gap: 16px;
-background-color: #ffffff;
-margin: 0 25px;
-align-items: center;
+.status {
+  padding: 16px 24px;
+  border-radius: 8px;
+  display: flex;
+  gap: 16px;
+  background-color: #ffffff;
+  margin: 0 25px;
+  align-items: center;
 }
 
-.list-data{
+.list-data {
   margin: 20px 25px;
   background-color: #ffffff;
   padding: 16px;
 }
 
-input{
+input {
   border: none;
   outline: none;
-  width:92%;
+  width: 92%;
 }
 
-.location{
-  font-family: 'Commissioner';
-font-size: 12px;
-font-weight: 400;
-line-height: 20px;
-letter-spacing: -0.20000000298023224px;
-text-align: left;
-color:#084782;
+.location {
+  font-family: "Commissioner";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: left;
+  color: #084782;
 }
 
-.search-field{
-  border: 1px solid #CFDCE5;
-  border-radius:8px;
+.search-field {
+  border: 1px solid #cfdce5;
+  border-radius: 8px;
   padding: 4px 8px;
   width: 100%;
   max-width: 240px;
 }
 
-.filters{
+.filters {
   display: flex;
   gap: 5px;
 }
 
-.filter-pagination{
+.filter-pagination {
   display: flex;
-    justify-content: space-between;
-    align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }

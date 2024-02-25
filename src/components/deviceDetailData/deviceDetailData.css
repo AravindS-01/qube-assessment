@@ -5,12 +5,11 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   padding: 24px;
-  gap:24px
+  gap: 24px;
 }
 .data-element {
   width: 100%;
   max-width: 293px;
-  /* height: 24px; */
   display: flex;
   flex-direction: column;
 }

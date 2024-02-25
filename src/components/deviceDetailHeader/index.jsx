@@ -19,7 +19,9 @@ const DeviceDetailHeader = ({ applianceID, currentData }) => {
       </div>
       <div className="device-location">
         <p className="location">{currentData.theatreName}</p>
-        <address className="city">{`${currentData.location?.city || '-'},${currentData?.location?.state || '-'},${currentData.location?.country|| '-'}`}</address>
+        <address className="city">{`${currentData.location?.city || "-"},${
+          currentData?.location?.state || "-"
+        },${currentData.location?.country || "-"}`}</address>
       </div>
       <div className="tag-section">
         <Tag status={online} statusText={currentData.deviceStatus} />

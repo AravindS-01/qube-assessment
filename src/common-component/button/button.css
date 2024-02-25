@@ -1,15 +1,15 @@
-.deviceDetail-button{
-    height: 32px;
-    font-family: 'Commissioner';
-   font-size: 12px;
-   font-weight: 500;
-   line-height: 20px;
-   letter-spacing: -0.20000000298023224px;
-   background-color: #E6ECF0;
-   padding: 6px 10px;
-   border-radius: 8px;
-   outline: none;
-   border: none;
-   display: flex;
-   align-items: center;
-   }
+.deviceDetail-button {
+  height: 32px;
+  font-family: "Commissioner";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.20000000298023224px;
+  background-color: #e6ecf0;
+  padding: 6px 10px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+}

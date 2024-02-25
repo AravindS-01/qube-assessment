@@ -3,9 +3,9 @@ import "./displayElement.css";
 import offline from "../../asset/failed.png";
 import online from "../../asset/onlineList.png";
 import DisplayStatus from "../../components/displayStatus";
-import downloading from'../../asset/downlaoading.png';
-import scheduled from '../../asset/scheduled.png';
-import cancelled  from '../../asset/cancelled.png';
+import downloading from "../../asset/downlaoading.png";
+import scheduled from "../../asset/scheduled.png";
+import cancelled from "../../asset/cancelled.png";
 
 const DisplayElement = ({ type, currentData, header }) => {
   switch (type) {
@@ -41,48 +41,48 @@ const DisplayElement = ({ type, currentData, header }) => {
         </td>
       );
     case "downloadStatus":
-        switch (currentData['downloadStatus']) {
-            case "Failed":
-              return (
-                <td style={{ display: "flex", alignItems: "center" }}>
-                  <img src={offline} alt="Failed" />
-                  <span>{currentData['downloadStatus']}</span>
-                </td>
-              );
-            case "Cancelled":
-              return (
-                <td style={{ display: "flex", alignItems: "center" }}>
-                  <img src={cancelled} alt="cancelled" />
-                  <span>{currentData['downloadStatus']}</span>
-                </td>
-              );
-            case "Scheduled":
-              return (
-                <td style={{ display: "flex", alignItems: "center" }}>
-                  <img src={scheduled} alt="scheduled" />
-                  <span>{currentData['downloadStatus']}</span>
-                </td>
-              );
-            case "Downloading":
-              return (
-                <td style={{ display: "flex", alignItems: "center" }}>
-                  <img src={downloading} alt="downloading" />
-                  <span>{currentData['downloadStatus']}</span>
-                </td>
-              );
-            case "Downloaded":
-              return (
-                <td style={{ display: "flex", alignItems: "center" }}>
-                  <img src={online} alt="Failed" />
-                  <span>{currentData['downloadStatus']}</span>
-                </td>
-              );
-              default:
-                return <></>
-        }
+      switch (currentData["downloadStatus"]) {
+        case "Failed":
+          return (
+            <td style={{ display: "flex", alignItems: "center" }}>
+              <img src={offline} alt="Failed" />
+              <span>{currentData["downloadStatus"]}</span>
+            </td>
+          );
+        case "Cancelled":
+          return (
+            <td style={{ display: "flex", alignItems: "center" }}>
+              <img src={cancelled} alt="cancelled" />
+              <span>{currentData["downloadStatus"]}</span>
+            </td>
+          );
+        case "Scheduled":
+          return (
+            <td style={{ display: "flex", alignItems: "center" }}>
+              <img src={scheduled} alt="scheduled" />
+              <span>{currentData["downloadStatus"]}</span>
+            </td>
+          );
+        case "Downloading":
+          return (
+            <td style={{ display: "flex", alignItems: "center" }}>
+              <img src={downloading} alt="downloading" />
+              <span>{currentData["downloadStatus"]}</span>
+            </td>
+          );
+        case "Downloaded":
+          return (
+            <td style={{ display: "flex", alignItems: "center" }}>
+              <img src={online} alt="Failed" />
+              <span>{currentData["downloadStatus"]}</span>
+            </td>
+          );
+        default:
+          return <></>;
+      }
 
     default:
-       return <td key={currentData.id}>{currentData[header.id]}</td>;
+      return <td key={currentData.id}>{currentData[header.id]}</td>;
   }
 };
 

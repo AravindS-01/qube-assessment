@@ -1,20 +1,20 @@
-.search-field{
-    border: 1px solid #CFDCE5;
-    border-radius:8px;
-    padding: 4px 8px;
-    width: 100%;
-    max-width: 240px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .filters{
-    display: flex;
-    gap: 5px;
-  }
+.search-field {
+  border: 1px solid #cfdce5;
+  border-radius: 8px;
+  padding: 4px 8px;
+  width: 100%;
+  max-width: 240px;
+  display: flex;
+  align-items: center;
+}
 
-  button{
-    display: flex;
-    gap: 5px;
-    align-items: center;
-  }
+.filters {
+  display: flex;
+  gap: 5px;
+}
+
+button {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
