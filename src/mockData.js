@@ -220,7 +220,7 @@ const mockData = [
         bandwidth: "1.2 Gbps",
         avgBandwidth: "850 Kbps",
         deviceStatus: "Online",
-        downloadStatus: "Succeeded",
+        downloadStatus: "Scheduled",
         osVersion: "5.3.1"
     },
     {
@@ -304,7 +304,7 @@ const mockData = [
         bandwidth: "1.9 Gbps",
         avgBandwidth: "1.3 Mbps",
         deviceStatus: "Online",
-        downloadStatus: "Succeeded",
+        downloadStatus: "Scheduled",
         osVersion: "6.0.1"
     },
     {
@@ -430,7 +430,7 @@ const mockData = [
         bandwidth: "1.6 Gbps",
         avgBandwidth: "1.1 Mbps",
         deviceStatus: "Offline",
-        downloadStatus: "Succeeded",
+        downloadStatus: "Scheduled",
         osVersion: "6.0.1"
     },
     {

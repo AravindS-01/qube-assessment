@@ -21,6 +21,7 @@ line-height: 20px;
 letter-spacing: -0.20000000298023224px;
 text-align: left;
 color: #69788C;
+cursor: pointer;
 }
 .breadCrumb-arrow{
     width:24px;

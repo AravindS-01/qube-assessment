@@ -1,36 +1,56 @@
-import React from 'react';
+import React ,{useMemo} from 'react';
 import './deviceDetailData.css';
 
 
-const DeviceDetailData = () => {
-  return (
-    <section className='data-container'>
-        <div className='data-element'> 
-            <label className='data-label'>Device Serial No</label>
-            <text  className='data-text'>JTD-912312</text>
+const DisplayLocation = ({ title, location }) => {
+    return (
+        <div className='data-element'>
+            <label className='data-label'>{title}</label>
+            <text className='data-text'>{`${location['city'] || '-'},${location['state'] || '-'},${location['country'] || '-'}`}</text>
         </div>
-        <div className='data-element'> 
-            <label className='data-label'>Location</label>
-            <text className='data-text'>JTD-912312</text>
-        </div>
-        <div className='data-element'> 
-            <label className='data-label'>Device Serial No</label>
-            <text  className='data-text'>JTD-912312</text>
-        </div>
-        <div className='data-element'> 
-            <label className='data-label'>Device Serial No</label>
-            <text  className='data-text' >JTD-912312</text>
-        </div>
-        <div className='data-element'> 
-            <label className='data-label'>Device Serial No</label>
-            <text  className='data-text' >JTD-912312</text>
-        </div>
-        <div className='data-element'> 
-            <label className='data-label'>Device Serial No</label>
-            <text  className='data-text' >JTD-912312</text>
-        </div>
-    </section>
-  )
+    )
+};
+
+
+
+const DeviceDetailData = ({ currentData }) => {
+    const headers = useMemo(()=>{ 
+        return {
+            serialNo : 'Device Serial',
+            location : 'city',
+            bandwidth : 'Bandwidth',
+            deviceStatus : 'Status',
+            downloadStatus : 'Download Status',
+            osVersion : 'OS Version',
+            avgBandwidth: 'Average Bandwidth',
+            ispPaymentResponsibility : 'ISP Payment Responsibility',
+            billingCycle : 'Billing Cycle',
+            planStartDate : 'Plan Start Date',
+            storage: 'Storage Available',
+            theatreName: 'Loaction'
+        }},[]);
+
+    return (
+        <section className='data-container'>
+            {Object.keys(currentData).map((deviceData, index) => {
+                return (
+                    <>
+                        {deviceData === 'location' ? (
+                        <DisplayLocation 
+                        title={deviceData} 
+                        location={currentData[deviceData]} 
+                        key={index}
+                        />) : (
+                        <div className='data-element' key={index}>
+                        <label className='data-label'>{headers[deviceData]}</label>
+                        <text className='data-text'>{currentData[deviceData]}</text>
+                        </div>
+                        )}
+                    </>
+                )
+            })}
+        </section>
+    )
 }
 
 export default DeviceDetailData

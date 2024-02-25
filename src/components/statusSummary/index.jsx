@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useMemo } from "react";
 import "./statusSummary.css";
 import failed from "../../asset/failed.png";
 import cancelled from "../../asset/cancelled.png";
@@ -7,7 +7,7 @@ import scheduled from "../../asset/scheduled.png";
 import downloaded from "../../asset/onlineList.png";
 
 const StatusSummary = ({ statusData }) => {
-  const statusObj = [
+  const statusObj = useMemo(()=> [
     {
       id: "Failed",
       img: failed,
@@ -33,33 +33,33 @@ const StatusSummary = ({ statusData }) => {
       img: downloaded,
       count: 0,
     },
-  ];
+  ],[]);
 
   const [statuses, setStatuses] = useState(statusObj);
+  const [statusCount, setStatusCount] = useState({});
 
-  useEffect(() => {
-    function countDownloadStatus(mockData) {
-      const downloadStatusCount = {};
+  useMemo(()=>{
+    const downloadStatusCount = {};
+    statusData.forEach((data) => {
+      const status = data.downloadStatus;
 
-      mockData.forEach((data) => {
-        const status = data.downloadStatus;
-
-        if (downloadStatusCount[status]) {
-          downloadStatusCount[status]++;
-        } else {
-          downloadStatusCount[status] = 1;
-        }
-      });
-      return downloadStatusCount;
-    }
-    const downloadStatusCount = countDownloadStatus(statusData);
-
-    const countVar = statuses.map((val)=>{
-      return ({...val,count:downloadStatusCount[val.id]})
+      if (downloadStatusCount[status]) {
+        downloadStatusCount[status]++;
+      } else {
+        downloadStatusCount[status] = 1;
+      }
     });
-    setStatuses(countVar)
-   
-  },[statusData, statuses]);
+    setStatusCount(downloadStatusCount);
+  },[statusData]);
+
+
+
+  useEffect(()=>{
+    const countVar = statuses.map((val)=>{
+      return ({...val,count:statusCount[val.id]})
+    });
+   setStatuses(countVar);
+  },[])
 
   return (
     <ul className="status">

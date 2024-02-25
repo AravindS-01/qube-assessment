@@ -2,77 +2,84 @@ import React, { useMemo, useState } from 'react';
 import './deviceList.css'
 import StatusSummary from '../statusSummary';
 import mockData from '../../mockData';
-import DisplayElement from '../../common-component/displayElement';
-import search from '../../asset/search.png';
-import filter from '../../asset/filter.png'
 import List from '../../common-component/list'
+import Pagination from '../../common-component/pagination';
+import Search from '../search'
 
 const DeviceList = () => {
-   const headers = useMemo(()=>{ return [
-    {id:'serialNo', name: 'Device Serial'},
-    {id:'location', name: 'Location'},                
-    {id:'bandwidth', name: 'Bandwidth'},                
-    {id:'deviceStatus', name: 'Status'},                
-    {id:'downloadStatus', name: 'Download Status'},                
-    {id:'osVersion', name: 'OS Version'},                               
+  
+  const [data,setData] = useState(mockData);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage,setItemPerPage] = useState(5);
+  
+  const pagesList = useMemo(()=>{ return [5,10,20]},[]);
+
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+  
+  const headers = useMemo(()=>{ return [
+   {id:'serialNo', name: 'Device Serial'},
+   {id:'location', name: 'Location'},                
+   {id:'bandwidth', name: 'Bandwidth'},                
+   {id:'deviceStatus', name: 'Status'},                
+   {id:'downloadStatus', name: 'Download Status'},                
+   {id:'osVersion', name: 'OS Version'},                               
 ] },[]);
-   const [data,setData] = useState(mockData);
 
-   
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+        setData(mockData)
+      };
 
+
+const debounce = (func, delay) => {
+  let timeoutId;
+  return function (...args) {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+};
+
+const performSearch = (term) => {
+  const search =  data.filter((val)=>{return val.deviceStatus === term});
+  if(term === ''){
+    setData(mockData) }
+    else setData(search)
+};
+const debouncedSearch = debounce(performSearch, 1000)
+
+ 
+const handleSearchChange = event => {
+  setSearchTerm(event.target.value);
+  debouncedSearch(event.target.value)
+};
   return (
     <>
     <div className='title'>Devices</div>
     <StatusSummary statusData={data} />
-    <section>
-      <div>
-      <div className='filters'>
-      <div className='search-field'>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={''}
-        onChange={()=>{}}
+    <section className='list-data'>
+      <div className='filter-pagination'>
+      <Search 
+      searchTerm={searchTerm} 
+      handleSearchChange={handleSearchChange}
       />
-      <img src={search} alt='search' />
-      </div>
-      <button>
-        <img src={filter} alt='filter'/>
-        <span>{'filter'}</span>
-      </button>
-      </div>
-      <div>
-        <div>
-        <label htmlFor="itemsPerPage">Show </label>
-      <select id="itemsPerPage" value={''} onChange={'handleItemsPerPageChange'}>
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-      </select>
-          
-        </div>
-      </div>
-      </div>
-<List headers={headers} mockData={data} />
-    {/* <table>
-        <thead>
-          <tr>
-            {headers.map(header => (
-              <th key={header.id}>{header.name}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {mockData.map((item,index) => (
-            <tr key={index}>
-              {headers.map(data => {
-                return (<DisplayElement key={data.id} type={data.id} header={data} currentData={item}/>)
-              })}
-              <td><button>view</button></td>
-            </tr>
-          ))}
-        </tbody>
-      </table> */}
+      <Pagination
+       currentPage={currentPage} 
+       totalPages={totalPages} 
+       onPageChange={handlePageChange}
+       itemsPerPage={itemsPerPage}
+       setItemPerPage={setItemPerPage}
+       pagesList={pagesList}
+       />
+     </div>
+     <List headers={headers} mockData={currentItems} />
     </section>
     </>
   )

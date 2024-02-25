@@ -7,23 +7,23 @@ import online from "../../asset/online.png";
 import Tag from "../../common-component/tag";
 import chart from "../../asset/chart.png";
 
-const DeviceDetailHeader = ({ applianceID }) => {
+const DeviceDetailHeader = ({ applianceID, currentData }) => {
   return (
     <section className="deviceDetail-element">
       <div className="device-header">
-        <h1 className="device-title">{"JTD-912312"}</h1>
+        <h1 className="device-title">{applianceID}</h1>
         <div className="button">
           <Button buttonText={"SpeedTest"} srcName={speedTest} />
           <Button buttonText={"Logs"} srcName={log} />
         </div>
       </div>
       <div className="device-location">
-        <p className="location">{"Cross River Mall"}</p>
-        <address className="city">{"New Delhi, Delhi, India"}</address>
+        <p className="location">{currentData.theatreName}</p>
+        <address className="city">{`${currentData.location?.city || '-'},${currentData?.location?.state || '-'},${currentData.location?.country|| '-'}`}</address>
       </div>
       <div className="tag-section">
-        <Tag status={online} statusText={"Online"} />
-        <Tag status={chart} statusText={"Chart"} />
+        <Tag status={online} statusText={currentData.deviceStatus} />
+        <Tag status={chart} statusText={currentData.bandwidth} />
       </div>
       <hr className="line-break"></hr>
       <ul className="summary">

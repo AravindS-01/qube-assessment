@@ -1,14 +1,26 @@
-import React from 'react'
-import BreadCrumbs from './components/breadCrumbs';
-import DeviceDetailData from './components/deviceDetailData';
-import DeviceDetailHeader from './components/deviceDetailHeader';
+import React, { useEffect, useState,useMemo } from 'react'
+import BreadCrumbs from '../breadCrumbs';
+import DeviceDetailData from '../deviceDetailData';
+import DeviceDetailHeader from '../deviceDetailHeader';
+import { useParams } from 'react-router-dom';
+import mockData from '../../mockData';
 
 
 const DeviceDetail = () => {
+  const { applianceId } = useParams();
+  const [data, setData] = useState({});
+  const currentData = useMemo(()=>{ return mockData.filter((val) => { return val.serialNo === applianceId })},[applianceId])
+
+ 
+  useEffect(() => {
+    setData(...currentData)
+  }, [applianceId, currentData]);
+
   return (
-    <div><BreadCrumbs applianceID={'JTD-913122'} />
-    <DeviceDetailHeader  applianceID={'JTD-913122'}/>
-    <DeviceDetailData /></div>
+    <div>
+      <BreadCrumbs applianceID={applianceId} />
+      <DeviceDetailHeader applianceID={applianceId} currentData={data} />
+      <DeviceDetailData currentData={data} /></div>
   )
 }
 

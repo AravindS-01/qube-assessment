@@ -16,7 +16,6 @@ const DisplayStatus = ({type,status}) => {
           </td>
         );
       case "Cancelled":
-        console.log("cancell")
         return (
           <td style={{ display: "flex", alignItems: "center" }}>
             <img src={cancelled} alt="cancelled" />
@@ -31,7 +30,6 @@ const DisplayStatus = ({type,status}) => {
           </td>
         );
       case "Downloading":
-        console.log("dom")
         return (
           <td style={{ display: "flex", alignItems: "center" }}>
             <img src={downloading} alt="downloading" />
