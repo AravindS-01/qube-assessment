@@ -28,15 +28,15 @@ const DisplayElement = ({ type, currentData, header }) => {
         //   style={{ display: "flex", alignItems: "center" }}
         <td>
           {currentData["deviceStatus"] === "Offline" ? (
-            <>
+            <div style={{ display: "flex", alignItems: "center" }}>
               <img src={offline} alt="Offline" />
               <span>{currentData["deviceStatus"]}</span>
-            </>
+            </div>
           ) : (
-            <>
+            <div>
               <img src={online} alt="Online" />
               <span>{currentData["deviceStatus"]}</span>
-            </>
+            </div>
           )}
         </td>
       );
